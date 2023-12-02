@@ -1,5 +1,7 @@
-// src/components/Homepage.tsx
+// src/components/homepage/Homepage.tsx
 import React, { useState } from 'react';
+import TabButton from './homepage/TabButton';
+import TabContent from './homepage/TabContent';
 import Downloader from './Downloader';
 import Cloud from './Cloud';
 
@@ -13,31 +15,25 @@ const Homepage: React.FC = () => {
   return (
     <main className="container mt-4">
       <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === 'downloader' ? 'active' : ''}`}
-            onClick={() => handleTabChange('downloader')}
-          >
-            Downloader
-          </button>
-        </li>
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === 'cloud' ? 'active' : ''}`}
-            onClick={() => handleTabChange('cloud')}
-          >
-            Cloud
-          </button>
-        </li>
+        <TabButton
+          label="Downloader"
+          isActive={activeTab === 'downloader'}
+          onClick={() => handleTabChange('downloader')}
+        />
+        <TabButton
+          label="Cloud"
+          isActive={activeTab === 'cloud'}
+          onClick={() => handleTabChange('cloud')}
+        />
       </ul>
 
       <div className="tab-content mt-3">
-        <div className={`tab-pane fade ${activeTab === 'downloader' ? 'show active' : ''}`}>
+        <TabContent isActive={activeTab === 'downloader'}>
           <Downloader />
-        </div>
-        <div className={`tab-pane fade ${activeTab === 'cloud' ? 'show active' : ''}`}>
+        </TabContent>
+        <TabContent isActive={activeTab === 'cloud'}>
           <Cloud />
-        </div>
+        </TabContent>
       </div>
     </main>
   );
