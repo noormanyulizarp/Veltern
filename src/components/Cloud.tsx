@@ -1,4 +1,4 @@
-// src/Cloud.tsx
+// src/components/Cloud.tsx
 import React from 'react';
 
 const Cloud: React.FC = () => {

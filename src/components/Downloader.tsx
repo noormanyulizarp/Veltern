@@ -1,4 +1,4 @@
-// src/Downloader.tsx
+// src/components/Downloader.tsx
 import React from 'react';
 
 const Downloader: React.FC = () => {

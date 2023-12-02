@@ -1,4 +1,4 @@
-// src/Homepage.tsx
+// src/components/Homepage.tsx
 import React, { useState } from 'react';
 import Downloader from './Downloader';
 import Cloud from './Cloud';
