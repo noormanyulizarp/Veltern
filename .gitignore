@@ -16,3 +16,16 @@ yarn-error.log
 # Editor directories and files
 .vscode
 .DS_Store
+
+# Build output
+dist/
+
+# Temporary files
+**/tmp/*
+**/.lock
+
+# Logs
+**/logs/*
+
+# Replit specific
+.cache/
