@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules
+yarn-error.log
+.pnp
+.pnp.js
+
+# Optional npm cache directory
+.npm
+
+# Yarn Integrity file
+.yarn
+
+# Snapshots
+*.snap
+
+# Editor directories and files
+.vscode
+.DS_Store
