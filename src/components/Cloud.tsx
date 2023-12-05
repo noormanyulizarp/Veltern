@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Grid from '@mui/material/Grid';
-import PcloudCloudContent from './cloud/PcloudCloudContent';
-import GoogleCloudContent from './cloud/GoogleCloudContent';
-import { TabButton, TabContent } from './homepage';
+import PcloudCloudContent from './cloud/PcloudCloudContent'; // Adjust the path if needed
+import GoogleCloudContent from './cloud/GoogleCloudContent'; // Adjust the path if needed
+import TabPanel from './TabPanel'; // Adjust the path if needed
 
 const Cloud: React.FC = () => {
   const [activeTab, setActiveTab] = useState('pcloud');
@@ -27,8 +27,8 @@ const Cloud: React.FC = () => {
             aria-label="Cloud tabs"
             sx={{ borderRight: 1, borderColor: 'divider' }}
           >
-            <Tab label="pCloud" value="pcloud" {...a11yProps('pcloud')} />
-            <Tab label="Google Cloud" value="googleCloud" {...a11yProps('googleCloud')} />
+            <Tab label="pCloud" value="pcloud" />
+            <Tab label="Google Cloud" value="googleCloud" />
           </Tabs>
         </Grid>
         <Grid item xs={12} sm={9}>
