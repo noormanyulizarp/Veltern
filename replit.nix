@@ -1,6 +1,5 @@
 { pkgs }: {
 	deps = [
-    pkgs.bpytop
     pkgs.fish
     pkgs.exa
 		pkgs.nodejs-16_x

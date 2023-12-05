@@ -1,5 +1,7 @@
 // src/components/homepage/TabButton.tsx
 import React from 'react';
+import Button from '@mui/material/Button';
+import ListItem from '@mui/material/ListItem';
 
 interface TabButtonProps {
   label: string;
@@ -9,14 +11,16 @@ interface TabButtonProps {
 
 const TabButton: React.FC<TabButtonProps> = ({ label, isActive, onClick }) => {
   return (
-    <li className="nav-item">
-      <button
-        className={`nav-link ${isActive ? 'active' : ''}`}
+    <ListItem>
+      <Button
+        variant={isActive ? "contained" : "text"}
+        color={isActive ? "primary" : "default"}
         onClick={onClick}
+        fullWidth
       >
         {label}
-      </button>
-    </li>
+      </Button>
+    </ListItem>
   );
 };
 

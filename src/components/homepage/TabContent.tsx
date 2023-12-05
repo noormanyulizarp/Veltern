@@ -1,5 +1,6 @@
 // src/components/homepage/TabContent.tsx
 import React from 'react';
+import Box from '@mui/material/Box';
 
 interface TabContentProps {
   isActive: boolean;
@@ -7,10 +8,19 @@ interface TabContentProps {
 }
 
 const TabContent: React.FC<TabContentProps> = ({ isActive, children }) => {
+  if (!isActive) return null;
+
   return (
-    <div className={`tab-pane fade ${isActive ? 'show active' : ''}`}>
+    <Box
+      role="tabpanel"
+      hidden={!isActive}
+      sx={{
+        paddingTop: 2,
+        // Add any additional styling you need here
+      }}
+    >
       {children}
-    </div>
+    </Box>
   );
 };
 

@@ -1,7 +1,6 @@
 // src/App.tsx
 import React from 'react';
 import Homepage from './components/Homepage';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const App: React.FC = () => {
   return (

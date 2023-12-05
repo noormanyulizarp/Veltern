@@ -1,39 +1,46 @@
 // src/components/cloud/Cloud.tsx
-import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
-import Tab from 'react-bootstrap/Tab';
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Grid from '@mui/material/Grid';
 import PcloudCloudContent from './cloud/PcloudCloudContent';
 import GoogleCloudContent from './cloud/GoogleCloudContent';
+import { TabButton, TabContent } from './homepage';
 
 const Cloud: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('pcloud');
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setActiveTab(newValue);
+  };
+
   return (
-    <Tab.Container id="cloud-tabs" defaultActiveKey="pcloud">
-      <Row>
-        <Col sm={3}>
-          <Nav variant="pills" className="flex-column">
-            <Nav.Item>
-              <Nav.Link eventKey="pcloud">pCloud</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="googleCloud">Google Cloud</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Col>
-        <Col sm={9}>
-          <Tab.Content>
-            <Tab.Pane eventKey="pcloud">
-              <PcloudCloudContent />
-            </Tab.Pane>
-            <Tab.Pane eventKey="googleCloud">
-              {/* Use the GoogleCloudContent component */}
-              <GoogleCloudContent />
-            </Tab.Pane>
-          </Tab.Content>
-        </Col>
-      </Row>
-    </Tab.Container>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={3}>
+          <Tabs
+            orientation="vertical"
+            variant="scrollable"
+            value={activeTab}
+            onChange={handleChange}
+            aria-label="Cloud tabs"
+            sx={{ borderRight: 1, borderColor: 'divider' }}
+          >
+            <Tab label="pCloud" value="pcloud" {...a11yProps('pcloud')} />
+            <Tab label="Google Cloud" value="googleCloud" {...a11yProps('googleCloud')} />
+          </Tabs>
+        </Grid>
+        <Grid item xs={12} sm={9}>
+          <TabPanel value={activeTab} index="pcloud">
+            <PcloudCloudContent />
+          </TabPanel>
+          <TabPanel value={activeTab} index="googleCloud">
+            <GoogleCloudContent />
+          </TabPanel>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
